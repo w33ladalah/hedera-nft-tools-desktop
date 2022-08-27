@@ -1,0 +1,300 @@
+<template>
+	<div class="">
+		<div>
+			<div class="container mx-auto">
+				<div>
+					<section class="">
+						<nav class="flex justify-between p-6 px-4">
+							<div class="flex justify-between items-center w-full">
+								<div class="xl:w-1/3">
+									<a class="block max-w-max" href="#">
+										<img class="h-8" src="images/LazySup-SVG-3-5.png" alt=""></a>
+								</div>
+								<div class="hidden xl:block xl:w-1/3">
+									<ul class="flex justify-center">
+										<li class="mr-12">
+										</li>
+										<li class="mr-12">
+										</li>
+										<li class="mr-12">
+										</li>
+										<li>
+										</li>
+									</ul>
+								</div>
+								<div class="hidden xl:block xl:w-1/3">
+									<div class="flex items-center justify-end"><a
+											class="inline-block py-2 px-4 mr-2 leading-5 text-coolGray-500 bg-transparent font-medium rounded-md"
+											href="index.html">Tools</a><a
+											class="inline-block py-2 px-4 text-sm leading-5 text-green-50 font-medium focus:ring-2 rounded-md"
+											href="settings.html">Settings</a></div>
+								</div>
+							</div>
+							<button class="navbar-burger self-center xl:hidden">
+								<svg width="35" height="35" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect class="text-coolGray-50" width="32" height="32" rx="6" fill="currentColor"></rect>
+									<path class="text-coolGray-500"
+										d="M7 12H25C25.2652 12 25.5196 11.8946 25.7071 11.7071C25.8946 11.5196 26 11.2652 26 11C26 10.7348 25.8946 10.4804 25.7071 10.2929C25.5196 10.1054 25.2652 10 25 10H7C6.73478 10 6.48043 10.1054 6.29289 10.2929C6.10536 10.4804 6 10.7348 6 11C6 11.2652 6.10536 11.5196 6.29289 11.7071C6.48043 11.8946 6.73478 12 7 12ZM25 15H7C6.73478 15 6.48043 15.1054 6.29289 15.2929C6.10536 15.4804 6 15.7348 6 16C6 16.2652 6.10536 16.5196 6.29289 16.7071C6.48043 16.8946 6.73478 17 7 17H25C25.2652 17 25.5196 16.8946 25.7071 16.7071C25.8946 16.5196 26 16.2652 26 16C26 15.7348 25.8946 15.4804 25.7071 15.2929C25.5196 15.1054 25.2652 15 25 15ZM25 20H7C6.73478 20 6.48043 20.1054 6.29289 20.2929C6.10536 20.4804 6 20.7348 6 21C6 21.2652 6.10536 21.5196 6.29289 21.7071C6.48043 21.8946 6.73478 22 7 22H25C25.2652 22 25.5196 21.8946 25.7071 21.7071C25.8946 21.5196 26 21.2652 26 21C26 20.7348 25.8946 20.4804 25.7071 20.2929C25.5196 20.1054 25.2652 20 25 20Z"
+										fill="currentColor"></path>
+								</svg>
+							</button>
+						</nav>
+						<div class="navbar-menu hidden fixed top-0 left-0 z-50 w-full h-full bg-coolGray-900 bg-opacity-50">
+							<div class="fixed top-0 left-0 bottom-0 w-full w-4/6 max-w-xs bg-white">
+								<nav class="relative p-6 h-full overflow-y-auto">
+									<div class="flex flex-col justify-between h-full">
+										<a class="inline-block" href="#">
+											<img class="h-8" src="flex-ui-assets/logos/flex-ui-green-light.svg" alt=""></a>
+										<div class="flex flex-wrap">
+											<div class="w-full mb-2"><a
+													class="inline-block py-2 px-4 w-full text-sm leading-5 text-coolGray-500 hover:text-coolGray-900 bg-transparent font-medium text-center rounded-md"
+													href="index.html">Tools</a></div>
+											<div class="w-full"><a
+													class="inline-block py-2 px-4 w-full text-sm leading-5 text-white bg-green-500 hover:bg-green-600 font-medium text-center focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md"
+													href="settings.html">Settings</a></div>
+										</div>
+									</div>
+								</nav>
+								<a class="navbar-close absolute top-5 p-4 right-3" href="#">
+									<svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M6.94004 6L11.14 1.80667C11.2656 1.68113 11.3361 1.51087 11.3361 1.33333C11.3361 1.1558 11.2656 0.985537 11.14 0.860002C11.0145 0.734466 10.8442 0.66394 10.6667 0.66394C10.4892 0.66394 10.3189 0.734466 10.1934 0.860002L6.00004 5.06L1.80671 0.860002C1.68117 0.734466 1.51091 0.663941 1.33337 0.663941C1.15584 0.663941 0.985576 0.734466 0.860041 0.860002C0.734505 0.985537 0.66398 1.1558 0.66398 1.33333C0.66398 1.51087 0.734505 1.68113 0.860041 1.80667L5.06004 6L0.860041 10.1933C0.797555 10.2553 0.747959 10.329 0.714113 10.4103C0.680267 10.4915 0.662842 10.5787 0.662842 10.6667C0.662842 10.7547 0.680267 10.8418 0.714113 10.9231C0.747959 11.0043 0.797555 11.078 0.860041 11.14C0.922016 11.2025 0.99575 11.2521 1.07699 11.2859C1.15823 11.3198 1.24537 11.3372 1.33337 11.3372C1.42138 11.3372 1.50852 11.3198 1.58976 11.2859C1.671 11.2521 1.74473 11.2025 1.80671 11.14L6.00004 6.94L10.1934 11.14C10.2554 11.2025 10.3291 11.2521 10.4103 11.2859C10.4916 11.3198 10.5787 11.3372 10.6667 11.3372C10.7547 11.3372 10.8419 11.3198 10.9231 11.2859C11.0043 11.2521 11.0781 11.2025 11.14 11.14C11.2025 11.078 11.2521 11.0043 11.286 10.9231C11.3198 10.8418 11.3372 10.7547 11.3372 10.6667C11.3372 10.5787 11.3198 10.4915 11.286 10.4103C11.2521 10.329 11.2025 10.2553 11.14 10.1933L6.94004 6Z"
+											fill="#556987"></path>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</section>
+					<section class=" py-4">
+						<div class="container px-4 mx-auto">
+							<div class="relative py-11 px-16 bg-spe rounded-md overflow-hidden">
+								<img class="absolute z-10 left-4 top-4" src="flex-ui-assets/elements/dashboard/banners/dots-red.svg"
+									alt=""><img class="absolute z-10 right-4 bottom-4"
+									src="flex-ui-assets/elements/dashboard/banners/dots-red.svg" alt=""><img
+									class="absolute h-64 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 object-cover"
+									src="flex-ui-assets/elements/dashboard/banners/wave-basic.svg" alt="">
+								<div class="relative z-20 flex flex-wrap items-center -m-3">
+									<div class="w-full md:w-1/2 p-3">
+										<h2 class="mb-6 text-4xl font-bold text-white tracking-tighter" contenteditable="false">Hedera Tools
+										</h2>
+										<p class="font-semibold text-coolGray-200">Useful set of tools to perform actions with Hedera
+											Network.</p>
+									</div>
+									<div class="w-full md:w-1/2 p-3">
+										<a class="block md:ml-auto px-7 py-4 font-medium text-lg text-coolGray-800 bg-white hover:bg-coolGray-50 rounded-md"
+											style="max-width:170px" href="settings.html">Get Started</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<div class="container mx-auto">
+						<section class=" py-4">
+							<div class="container px-4 mx-auto">
+								<div class="flex flex-wrap -m-3">
+									<div class="w-full md:w-1/2 xl:w-1/4 p-3">
+										<div class=" dark-second rounded-md">
+											<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6  ">
+												<img class="mb-4" src="images/icons8-info-48-1.png" alt="">
+												<h2 class="text-sm font-medium text-coolGray-600">Get Token Info</h2>
+												<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Get Token Info Used to get basic
+													information about a token [and can pull metadata].</h3>
+												<a href="get_token_info.html"
+													class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
+													<p>Use it</p>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="w-full md:w-1/2 xl:w-1/4 p-3  ">
+										<div class="dark-second   rounded-md">
+											<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6 ">
+												<img class="mb-4" src="images/icons8-chercher-48.png" alt="">
+												<h2 class="text-sm font-medium text-coolGray-600">Check Ownership</h2>
+												<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Used to query ownership of tokens
+													and produce audit snapshots.</h3>
+												<a href="#"
+													class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
+													<p>Use it</p>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="w-full md:w-1/2 xl:w-1/4 p-3">
+										<div class="dark-second rounded-md">
+											<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6 ">
+												<img class="mb-4" src="images/icons8-lien-48.png" alt="">
+												<h2 class="text-sm font-medium text-coolGray-600">Associate/Disassociate Tokens </h2>
+												<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Allows multiple association /
+													disassociation of tokens in a single transaction.</h3>
+												<a href="#"
+													class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
+													<p>Use it</p>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="w-full md:w-1/2 xl:w-1/4 p-3">
+										<div class="dark-second  rounded-md">
+											<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6 ">
+												<img class="mb-4" src="images/icons8-coin-48.png" alt="">
+												<h2 class="text-sm font-medium text-coolGray-600">Create Fungible Token</h2>
+												<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Used to create a new fungible
+													token.</h3>
+												<a href="#"
+													class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md .so-button so-button aligncent">
+													<p class="aligncent">Use it</p>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<section class=" py-4">
+								<div class="container px-4 mx-auto">
+									<div class="flex flex-wrap -m-3">
+										<div class="w-full md:w-1/2 xl:w-1/4 p-3">
+											<div class=" dark-second rounded-md">
+												<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6  ">
+													<img class="mb-4" src="images/icons8-degivrage-48.png" alt="">
+													<h2 class="text-sm font-medium text-coolGray-600">Freeze NFT</h2>
+													<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Simple tool to freeze a token
+														for an account. Requires FREEZE Key on mint.</h3>
+													<a href="#"
+														class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
+														<p>Use it</p>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="w-full md:w-1/2 xl:w-1/4 p-3  ">
+											<div class="dark-second   rounded-md">
+												<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6 ">
+													<img class="mb-4" src="images/icons8-fire-64.png" alt="">
+													<h2 class="text-sm font-medium text-coolGray-600">Burn NFT</h2>
+													<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Simple tool to allow the
+														burning of NFTs [when you hold the supply key].</h3>
+													<a href="#"
+														class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
+														<p>Use it</p>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="w-full md:w-1/2 xl:w-1/4 p-3">
+											<div class="dark-second rounded-md">
+												<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6 justify">
+													<img class="mb-4" src="images/icons8-fire-64-1.png" alt="">
+													<h2 class="text-sm font-medium text-coolGray-600">Burn FT</h2>
+													<h3 class="mb-3 text-xs font-medium text-coolGray-400">Simple tool to allow the burning of FTs
+														[when you hold the supply key].</h3>
+													<a href="#"
+														class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
+														<p>Use it</p>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="w-full md:w-1/2 xl:w-1/4 p-3">
+											<div class="dark-second  rounded-md">
+												<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6 ">
+													<img class="mb-4" src="images/icons8-token-64.png" alt="">
+													<h2 class="text-sm font-medium text-coolGray-600">Mint additional FT</h2>
+													<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Used to add supply to an
+														existing Fungible token.</h3>
+													<a href="#"
+														class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md .so-button so-button aligncent">
+														<p class="aligncent">Use it</p>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class=" py-4">
+								<div class="container px-4 mx-auto">
+									<div class="flex flex-wrap -m-3">
+										<div class="w-full md:w-1/2 xl:w-1/4 p-3">
+											<div class=" dark-second rounded-md">
+												<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6  ">
+													<img class="mb-4" src="images/icons8-donnees-dans-les-deux-directions-48.png" alt="">
+													<h2 class="text-sm font-medium text-coolGray-600 justify">Transfer Tokens between two accounts
+														owned</h2>
+													<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Tool to transfer all serials of
+														a given token from one account to another when you have both keys.</h3>
+													<a href="#"
+														class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
+														<p>Use it</p>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="w-full md:w-1/2 xl:w-1/4 p-3  ">
+											<div class="dark-second   rounded-md">
+												<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6 ">
+													<img class="mb-4" src="images/icons8-cle-48.png" alt="">
+													<h2 class="text-sm font-medium text-coolGray-600">Update Private Key</h2>
+													<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Tool to update the Private Key
+														on an account.</h3>
+													<a href="#"
+														class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
+														<p>Use it</p>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="w-full md:w-1/2 xl:w-1/4 p-3">
+											<div class="dark-second rounded-md">
+												<div class="flex flex-col justify-center items-center px-4 pt-8 pb-6 justify">
+													<img class="mb-4" src="images/icons8-longue-vue-48.png" alt="">
+													<h2 class="text-sm font-medium text-coolGray-600">Track Hedera NFTs</h2>
+													<h3 class="mb-3 text-xs font-medium text-coolGray-400">Scans for ALL NFTs on the network and
+														tracks which wallets own what balances.</h3>
+													<a href="#"
+														class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
+														<p>Use it</p>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="w-full md:w-1/2 xl:w-1/4 p-3">
+											<div class="dark-second  rounded-md">
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</section>
+						<section class=" " style=" ">
+							<div class="container px-4 mx-auto">
+							</div>
+							<div class="border-b border-coolGray-800" style="margin-top:50px"></div>
+							<div class="container px-4 mx-auto">
+								<p class="py-10  text-coolGray-400   text-center" style="font-size:10px">&copy; Deejay - <a
+										href="https://github.com/Burstall/hedera-nft-scripts" target="blank">Burstall Github</a>
+									- This software is provided for free and open-source "as it is"
+								</p>
+							</div>
+						</section>
+					</div>
+					<div class="flex flex-wrap -mx-4 -mb-4 md:mb-0">
+						<div class="w-full md:w-1/3 px-4 mb-4 md:mb-0">
+							<div class="w-full md:w-1/3 p-3">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+export default {
+  name: 'MainPage',
+  props: {
+    msg: String
+  }
+}
+</script>

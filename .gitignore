@@ -24,3 +24,13 @@ pnpm-debug.log*
 
 #Electron-builder output
 /dist_electron
+
+# Hedera scripts
+.DS_Store
+.env
+auditOuput2*
+test.txt
+0.0.*
+_*
+walletOwnership.csv
+tokenFlatFileDB*
