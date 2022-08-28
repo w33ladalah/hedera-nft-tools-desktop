@@ -32,10 +32,10 @@
 								<h2 class="text-sm font-medium text-coolGray-600">Get Token Info</h2>
 								<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Get Token Info Used to get basic
 									information about a token [and can pull metadata].</h3>
-								<a href="get_token_info.html"
+								<router-link to="/get-token-info"
 									class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
 									<p>Use it</p>
-								</a>
+								</router-link>
 							</div>
 						</div>
 					</div>
