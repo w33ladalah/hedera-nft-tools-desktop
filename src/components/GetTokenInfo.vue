@@ -2,7 +2,7 @@
 	<section class="p-8">
 		<div class="flex flex-wrap items-center">
 			<div class="w-full">
-				<h2 class="mb-2 font-semibold text-3xl" contenteditable="false">Get Token Info</h2>
+				<h2 class="mb-2 font-semibold text-3xl">Get Token Info</h2>
 				<p>
 					Used to get basic information about a token [and can pull metadata]<br><br>
 					Usage: fill the fields and run the tool
@@ -11,7 +11,6 @@
 		</div>
 	</section>
 	<hr class="pl-8 pr-8 pb-8">
-
 	<form ref="getTokenInfoForm" @submit="onSubmit" class="get-token-info-form">
 		<div class="flex flex-wrap -mx-4 -mb-4 md:mb-0">
 			<div class="w-full md:w-1/2 px-4 mb-4 md:mb-0">
