@@ -232,28 +232,6 @@ async function getMetadata(path) {
 
 }
 
-function getArg(arg) {
-	const customIndex = process.argv.indexOf(`-${arg}`);
-	let customValue;
-
-	if (customIndex > -1) {
-		// Retrieve the value after --custom
-		customValue = process.argv[customIndex + 1];
-	}
-
-	return customValue;
-}
-
-function getArgFlag(arg) {
-	const customIndex = process.argv.indexOf(`-${arg}`);
-
-	if (customIndex > -1) {
-		return true;
-	}
-
-	return false;
-}
-
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
