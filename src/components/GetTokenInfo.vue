@@ -28,15 +28,13 @@
 						class="w-full py-3 px-4 text-coolGray-500 leading-tight placeholder-coolGray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 border border-coolGray-200 rounded-lg shadow-xs"
 						type="text" name="field-name" placeholder="Eg 22">
 				</div>
-				<button type="submit" class="bg-spe inline-block py-3 px-7 w-full md:w-auto text-lg leading-7 text-green-50 bg-green-500 hover:bg-green-600 font-medium text-center focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 border border-transparent rounded-md shadow-sm ml-8 mr-8 button-spe">
+				<button type="submit"
+					class="bg-spe inline-block py-3 px-7 w-full md:w-auto text-lg leading-7 text-green-50 bg-green-500 hover:bg-green-600 font-medium text-center focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 border border-transparent rounded-md shadow-sm ml-8 mr-8 button-spe">
 					Run the tool</button>
 			</div>
 			<div class="w-full md:w-1/2 px-4 mb-4 md:mb-0">
-				<div style="background-color:black;color:green;min-height:400px">
-					<p class="pr-8 pl-8 pt-8 pb-8" ref="consoleOutput">
-						<!-- &gt; Console output<br>
-						&gt; Console output -->
-					</p>
+				<div style="background-color:black;color:green;min-height:400px; overflow: scroll;">
+					<p class="pr-8 pl-8 pt-8 pb-8" ref="consoleOutput" id="consoleOutput" v-html="outputs"></p>
 				</div>
 			</div>
 		</div>
@@ -44,6 +42,13 @@
 </template>
 
 <script>
-import GetTokenInfoForm from '../controllers/get-token-info'
-export default GetTokenInfoForm
+import GetTokenInfoController from '../controllers/GetTokenInfoController'
+export default GetTokenInfoController
 </script>
+
+<style scoped>
+#consoleOutput {
+	word-wrap: break-word;
+	font-size: 10px;
+}
+</style>

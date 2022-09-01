@@ -183,6 +183,6 @@
 </template>
 
 <script>
-import SettingController from '../controllers/settings'
+import SettingController from '../controllers/SettingController'
 export default SettingController
 </script>

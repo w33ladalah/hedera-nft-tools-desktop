@@ -1,5 +1,5 @@
 <template>
-	<section class="py-4">
+	<section class="py-4" v-if="displayGettingStarted">
 		<div class="container px-4 mx-auto">
 			<div class="relative py-11 px-16 bg-spe rounded-md overflow-hidden">
 				<img class="absolute z-10 left-4 top-4" src="flex-ui-assets/elements/dashboard/banners/dots-red.svg" alt=""><img
@@ -216,5 +216,11 @@
 <script>
 export default {
   name: 'MainPage',
+	computed: {
+		displayGettingStarted() {
+			const settings = JSON.parse(window.localStorage.getItem('settings'))
+			return settings === null
+		}
+	}
 }
 </script>

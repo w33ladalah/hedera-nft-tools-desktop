@@ -1,11 +1,16 @@
 import fetch from 'cross-fetch';
 
 let swapLineBreak = false;
-let verbose = false;
+let verbose = true;
 let testnet = false;
 let serialsCheck = false;
 let imgOnly = false;
 let scrapeOutput = false;
+let outputs = [];
+
+const settings = JSON.parse(localStorage.getItem('settings'));
+
+testnet = settings.environment == 'TEST';
 
 // global variable
 const ipfsGateways = ['https://cloudflare-ipfs.com/ipfs/', 'https://ipfs.eternum.io/ipfs/', 'https://ipfs.io/ipfs/', 'https://ipfs.eth.aragon.network/ipfs/'];
@@ -32,11 +37,11 @@ async function fetchJson(url, depth = 0, retries = maxRetries) {
 
 async function fetchIPFSJson(ifpsUrl, depth = 0, seed = 0) {
 	if (depth >= maxRetries) return null;
-	if (depth > 0 && verbose) console.log('Attempt: ', depth + 1);
+	if (depth > 0 && verbose) outputs.push('> Attempt: ' + (depth + 1));
 	depth++;
 
 	const url = `${ipfsGateways[seed % ipfsGateways.length]}${ifpsUrl}`;
-	if (verbose) {console.log('Fetch: ', url, depth);}
+	if (verbose) { outputs.push(`> Fetch: ${url} ${depth}`); }
 	seed += 1;
 	try {
 		const res = await fetch(url);
@@ -62,20 +67,20 @@ async function getTokenInfo(tokenId, serialsList) {
 	else {
 		url = `https://mainnet-public.mirrornode.hedera.com/api/v1/tokens/${tokenId}`;
 	}
-	if (verbose) { console.log(url); }
+	if (verbose) { outputs.push(url); }
 
 	const token = await fetchJson(url, 0, 2);
 	if (token == null) {
-		console.log(`Error looking up ID: ${tokenId}`);
+		outputs.push(`> Error looking up ID: ${tokenId}`);
 		return null;
 	}
 
-	// console.log(Inspect.properties(u));
+	// outputs.push(Inspect.properties(u));
 	const customFees = token.custom_fees;
-	// console.log(customFees);
+	// outputs.push(customFees);
 	let royaltiesStr = '';
 	if (customFees.royalty_fees !== undefined) {
-		// console.log(customFees);
+		// outputs.push(customFees);
 		const royalties = customFees.royalty_fees;
 		royalties.forEach((item) => {
 			const numerator = item.amount.numerator;
@@ -101,7 +106,7 @@ async function getTokenInfo(tokenId, serialsList) {
 	else {
 		royaltiesStr = 'NONE';
 	}
-	if (verbose) console.log(royaltiesStr);
+	if (verbose) outputs.push(royaltiesStr);
 
 	const tS = token.total_supply;
 	const mS = token.max_supply;
@@ -118,30 +123,32 @@ async function getTokenInfo(tokenId, serialsList) {
 	if (symbol.includes('IPFS')) {
 		symbol = await getMetadata(symbol);
 	}
-	console.log(url);
-	console.log(`token: ${tokenId}, total supply: ${tS}`);
-	console.log(`name: ${name}, decimal: ${decimals}`);
-	console.log(`symbol: ${symbol}`);
-	console.log(`tsry: ${tsryAcc}, max supply: ${mS}`);
-	console.log(`type: ${type}, supply type: ${supply_type}`);
-	console.log(`deleted: ${deleted}, pause: ${pause}`);
-	console.log(royaltiesStr);
+
+	outputs.push('> Token Information:')
+	outputs.push(url);
+	outputs.push(`> Token ID: ${tokenId}, Total supply: ${tS}`);
+	outputs.push(`> Name: ${name}, Decimal: ${decimals}`);
+	outputs.push(`> Symbol: ${symbol}`);
+	outputs.push(`> Tsry: ${tsryAcc}, Max Supply: ${mS}`);
+	outputs.push(`> Type: ${type}, Supply Type: ${supply_type}`);
+	outputs.push(`> Deleted: ${deleted}, Pause: ${pause}`);
+	outputs.push(royaltiesStr);
 
 	if (serialsCheck) {
 		for (let c = 0; c < serialsList.length; c++) {
 			const result = await getNFTSerialMetadata(`${url}/nfts/${serialsList[c]}`, serialsList[c]);
-			console.log(`Serial #${serialsList[c]}`, result);
+			outputs.push(`> Serial #${serialsList[c]} ${result}`);
 		}
 	}
 }
 
 async function getNFTSerialMetadata(url) {
-	if (verbose) { console.log(url); }
+	if (verbose) { outputs.push(url); }
 
 	const u = await fetchJson(url);
 
 	const metadataString = atob(u.metadata);
-	if (verbose) { console.log('translated metadata string: ', metadataString); }
+	if (verbose) { outputs.push(`> translated metadata string: ${metadataString}`); }
 
 	const ipfsRegEx = /ipfs:?\/\/?(.+)/i;
 	let ipfsString;
@@ -152,7 +159,7 @@ async function getNFTSerialMetadata(url) {
 		// likely string did not have IPFS in it...default use the whole string
 		ipfsString = metadataString;
 	}
-	if (verbose) { console.log('regexed metadata string: ', ipfsString); }
+	if (verbose) { outputs.push(`> regexed metadata string: ${ipfsString}`); }
 
 	const metadataJSON = await fetchIPFSJson(ipfsString, 0, randomNumber(0, ipfsGateways.length));
 
@@ -163,14 +170,14 @@ async function getNFTSerialMetadata(url) {
 	let img = metadataJSON.image;
 
 	try {
-		if (verbose) console.log('IMG:', img);
+		if (verbose) outputs.push(`> IMG: ${img}`);
 		if (img.description) {
 			img = img.description;
 		}
 		img = img.replace(/ipfs:\/\//gi, `${ipfsGateways[0]}`);
 	}
 	catch (err) {
-		console.log('error obtaining the image', img, err);
+		outputs.push(`> error obtaining the image ${img}: ${err}`);
 	}
 
 	let attribs = '';
@@ -265,41 +272,40 @@ async function fetchWithTimeout(resource, options = {}) {
 	return response;
 }
 
-async function main() {
+export default async function main(tokenId, serialsArg) {
+	outputs = [];
+	// const help = getArgFlag('h');
+	// if (help) {
+	// 	outputs.push('> Usage: node getTokenInfo.mjs -t <token> [-v] [-swap] [-testnet] [-s <serial>] [-img]');
+	// 	outputs.push('>        -t <token>');
+	// 	outputs.push('>        -s <serial>');
+	// 	outputs.push('>        -img    gets images only');
+	// 	outputs.push('>        -swap   swaps out line breaks in metadata found');
+	// 	outputs.push('>        -testnet');
+	// 	outputs.push('>        -v          verbose [debug]');
+	// 	return;
+	// }
 
+	// verbose = getArgFlag('v');
 
-	const help = getArgFlag('h');
-	if (help) {
-		console.log('Usage: node getTokenInfo.mjs -t <token> [-v] [-swap] [-testnet] [-s <serial>] [-img]');
-		console.log('       -t <token>');
-		console.log('       -s <serial>');
-		console.log('       -img    gets images only');
-		console.log('       -swap   swaps out line breaks in metadata found');
-		console.log('       -testnet');
-		console.log('       -v          verbose [debug]');
-		return;
-	}
-
-	verbose = getArgFlag('v');
-
-	let tokenId = getArg('t');
+	// let tokenId = getArg('t');
 	if (tokenId === undefined) {
-		console.log('**MUST** specify token -> Usage: node getTokenInfo.mjs -h');
+		outputs.push('> **MUST** specify token -> Usage: node getTokenInfo.mjs -h');
 		return;
 	}
 
-	swapLineBreak = getArgFlag('swap');
+	// swapLineBreak = getArgFlag('swap');
 
-	testnet = getArgFlag('testnet');
+	// testnet = getArgFlag('testnet');
 
-	imgOnly = getArgFlag('img');
+	// imgOnly = getArgFlag('img');
 
-	scrapeOutput = getArgFlag('scrape');
+	// scrapeOutput = getArgFlag('scrape');
 
-	const serialsArg = getArg('s');
+	// const serialsArg = getArg('s');
 	let serialsList = [];
 
-	if (serialsArg !== undefined) {
+	if (serialsArg.length > 0) {
 		serialsCheck = true;
 
 		// format csv or '-' for range
@@ -321,15 +327,14 @@ async function main() {
 	}
 
 	const tokenList = [tokenId];
-
+	// const tokenInfo = [];
 	for (let i = 0; i < tokenList.length; i++) {
-
 		tokenId = tokenList[i];
-		if (verbose) {console.log(`processing token: ${tokenId}`);}
-		await getTokenInfo(tokenId, serialsList);
 
+		if (verbose) { outputs.push(`> Processing token: ${tokenId}`); }
+
+		await getTokenInfo(tokenId, serialsList);
 	}
 
+	return outputs;
 }
-
-main();
