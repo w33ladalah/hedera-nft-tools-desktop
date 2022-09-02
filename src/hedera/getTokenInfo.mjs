@@ -10,7 +10,10 @@ let outputs = [];
 
 const settings = JSON.parse(localStorage.getItem('settings'));
 
-testnet = settings.environment == 'TEST';
+if (settings == null)
+	testnet = false;
+else
+	testnet = settings.environment == 'TEST';
 
 // global variable
 const ipfsGateways = ['https://cloudflare-ipfs.com/ipfs/', 'https://ipfs.eternum.io/ipfs/', 'https://ipfs.io/ipfs/', 'https://ipfs.eth.aragon.network/ipfs/'];

@@ -5,8 +5,8 @@ export default {
 	data() {
 		return {
 			tokenId: '',
-			serials: [],
-			outputs: "",
+			serials: '',
+			outputs: '',
 		}
 	},
 	methods: {

@@ -46,10 +46,10 @@
 								<h2 class="text-sm font-medium text-coolGray-600">Check Ownership</h2>
 								<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Used to query ownership of tokens
 									and produce audit snapshots.</h3>
-								<a href="#"
+								<router-link to="/check-ownership"
 									class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
 									<p>Use it</p>
-								</a>
+								</router-link>
 							</div>
 						</div>
 					</div>
@@ -60,10 +60,10 @@
 								<h2 class="text-sm font-medium text-coolGray-600">Associate/Disassociate Tokens </h2>
 								<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Allows multiple association /
 									disassociation of tokens in a single transaction.</h3>
-								<a href="#"
+								<router-link to="/associate-token"
 									class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md so-button">
 									<p>Use it</p>
-								</a>
+								</router-link>
 							</div>
 						</div>
 					</div>
@@ -74,10 +74,10 @@
 								<h2 class="text-sm font-medium text-coolGray-600">Create Fungible Token</h2>
 								<h3 class="mb-3 text-xs font-medium text-coolGray-400 justify">Used to create a new fungible
 									token.</h3>
-								<a href="#"
+								<router-link to="/create-fungible-token"
 									class="flex items-center px-4 py-2 font-medium text-sm text-white bg-green-500 hover:bg-green-600 rounded-md .so-button so-button aligncent">
 									<p class="aligncent">Use it</p>
-								</a>
+								</router-link>
 							</div>
 						</div>
 					</div>
@@ -199,17 +199,7 @@
 				</div>
 			</section>
 		</section>
-		<section class=" " style=" ">
-			<div class="container px-4 mx-auto">
-			</div>
-			<div class="border-b border-coolGray-800" style="margin-top:50px"></div>
-			<div class="container px-4 mx-auto">
-				<p class="py-10  text-coolGray-400   text-center" style="font-size:10px">&copy; Deejay - <a
-						href="https://github.com/Burstall/hedera-nft-scripts" target="blank">Burstall Github</a>
-					- This software is provided for free and open-source "as it is"
-				</p>
-			</div>
-		</section>
+
 	</div>
 </template>
 
